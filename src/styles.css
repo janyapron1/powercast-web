@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html, body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  html.dark, html.dark body, body.dark {
+    background-color: #080A0F;
+    color: #F1F5F9;
+  }
+}
