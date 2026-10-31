@@ -22,3 +22,4 @@ export interface AppMetric {
   change: string;
   isPositive: boolean;
 }
+

@@ -31,3 +31,4 @@ export async function fetchCurrentUser(): Promise<User> {
   await new Promise((resolve) => setTimeout(resolve, 300));
   return MOCK_USER;
 }
+

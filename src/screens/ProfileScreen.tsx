@@ -123,3 +123,4 @@ export function ProfileScreen({ user, onBack, onSignOut }: ProfileScreenProps) {
     </View>
   );
 }
+

@@ -16,3 +16,4 @@ export const NAVIGATION_ROUTES = {
   HOME: 'Home',
   PROFILE: 'Profile',
 } as const;
+
