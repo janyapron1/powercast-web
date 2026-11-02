@@ -1,38 +1,68 @@
-# PowerCast Mobile
+# PowerCast Mobile (Flat Structure Architecture)
 
-React Native frontend built with Expo, NativeWind, and a shadcn/ui-inspired component layer.
+React Native application built with **Expo SDK 52**, **TypeScript**, and **NativeWind (Tailwind CSS)** structured according to the **Flat Structure** best practice pattern referenced from DhineshKumar Thirupathi's guide (*"Best Practices for Structuring Your React Native Projects"*).
 
-PowerCast is an energy intelligence experience for deep learning-based forecasting of electricity generation structure and natural gas dependency risks. The initial authentication experience is available in `src/presentation/screens/AuthScreen.tsx`.
+---
 
-## Getting started
+## 📁 Project Architecture: Flat Structure
 
+In a **Flat Structure**, files are categorized by their technical role into broad, top-level directories directly under `src/` without deep nesting:
+
+```text
+├── App.tsx                     # Main application entry point & root state router
+├── src/
+│   ├── assets/                 # Static assets (images, icons, fonts)
+│   ├── components/             # Reusable UI components
+│   │   ├── Button.tsx          # Reusable styled button with variants & loading state
+│   │   ├── Card.tsx            # Card wrapper container component
+│   │   ├── Header.tsx          # App bar / screen header component
+│   │   └── Input.tsx           # Form input component with label & error handling
+│   ├── screens/                # Full screen views
+│   │   ├── HomeScreen.tsx      # Main dashboard & telemetry overview
+│   │   └── ProfileScreen.tsx   # User profile, credentials & settings
+│   ├── services/               # API clients, network requests & authentication
+│   │   ├── api.ts              # Generic HTTP client wrapper
+│   │   └── auth.ts             # Authentication methods (login, logout, fetch user)
+│   ├── utils/                  # Shared helpers and constants
+│   │   ├── constants.ts        # App configuration, routes, and constants
+│   │   └── helpers.ts          # Utility functions (cn for Tailwind, formatters)
+│   ├── hooks/                  # Custom reusable React hooks
+│   │   └── useAuth.ts          # Authentication state management hook
+│   ├── types/                  # Global TypeScript interfaces & definitions
+│   │   └── index.ts            # Type definitions (User, AuthState, ScreenName, etc.)
+│   └── styles.css              # NativeWind / Tailwind CSS entry directives
+```
+
+### When to Use Flat Structure:
+- **Ideal for:** MVPs, prototypes, smaller to medium applications, or when seeking quick navigation without complex folder overhead.
+- **Benefits:**
+  - Simple, clean mental model with zero nested directory clutter.
+  - Highly intuitive file lookup across technical categories (`components`, `screens`, `services`, `utils`).
+  - Clear import paths using the `@/*` alias (e.g. `@/components/Button`).
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install dependencies
 ```bash
 npm install
+```
+
+### 2. Start Expo Development Server
+```bash
 npm start
 ```
 
-Use the Expo CLI prompts to open the app on Android, iOS, or web.
+Press `w` in terminal for web preview, `a` for Android emulator, or `i` for iOS simulator.
 
-## Architecture
+---
 
-- `src/app` - application composition and providers
-- `src/domain` - framework-independent types and business concepts
-- `src/data` - API clients, persistence, and repository implementations
-- `src/presentation/components/ui` - reusable, accessible UI primitives
-- `src/presentation/hooks` - stateful presentation logic
-- `src/presentation/screens` - screen-level composition
-- `src/lib` - small shared utilities
-- `docs/PROJECT.md` - product purpose and product principles
-- `docs/DESIGN_SYSTEM.md` - visual theme, tokens, typography, and component rules
-- `docs/AUTH_DEVELOPMENT.md` - production standards for Login and Register integration
+## 🛠 Available Scripts
 
-NativeWind provides Tailwind utility classes for React Native. The UI primitives intentionally follow shadcn/ui conventions: small composable components, explicit variants, and className overrides.
-
-## Available scripts
-
-- `npm run start` - start the Expo development server
-- `npm run android` - build and launch the Android app
-- `npm run ios` - build and launch the iOS app
-- `npm run web` - launch the web target
-- `npm run typecheck` - run TypeScript checks
-- `npm run lint` - run Expo ESLint checks
+- `npm run start` - Launch the Expo development server
+- `npm run typecheck` - Validate TypeScript types (`tsc --noEmit`)
+- `npm run lint` - Run ESLint checks
+- `npm run web` - Run in browser
+- `npm run android` - Run on Android device/emulator
+- `npm run ios` - Run on iOS simulator

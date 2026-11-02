@@ -12,9 +12,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@expo-google-fonts/geist": "^0.4.2",
+    "@expo-google-fonts/geist-mono": "^0.4.3",
+    "@expo-google-fonts/jetbrains-mono": "^0.4.1",
+    "@expo-google-fonts/manrope": "^0.4.3",
     "@expo/metro-runtime": "~4.0.1",
     "clsx": "^2.1.1",
     "expo": "~52.0.0",
+    "expo-font": "~13.0.4",
     "expo-status-bar": "~2.0.0",
     "lucide-react-native": "^1.55.0",
     "nativewind": "4.1.23",
